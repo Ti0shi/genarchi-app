@@ -5,7 +5,7 @@
         "postinstall": "concurrently \"cd back-end && npm ci\" \"cd front-end && npm ci\"",
         "set-up:db": "cd back-end && docker compose up -d mongo",
         "start": "concurrently \"npm run start:back-end\" \"npm run start:front-end\"",
-        "start:prod": "concurrently \"cd back-end && npm run start\" \"cd front-end && npm run build && npm run preview\"",
+        "start:prod": "concurrently \"cd back-end && npm run start\" \"cd front-end && npm run build && npm run serve\"",
         "start:back-end": "cd back-end && npm run start:dev",
         "start:front-end": "cd front-end && npm run dev",
         "lint": "cd back-end && npm run lint && cd ../front-end && npm run lint",
