@@ -11,15 +11,8 @@ import { ApiError } from './utils/ApiError';
 export async function init(): Promise<express.Application> {
     const app: Application = express();
 
-    // allowed origins for cors
-    const AllowedOrigins = ['*'];
-
-    const options: cors.CorsOptions = {
-        origin: AllowedOrigins,
-    };
-
     // use cors for api calls
-    app.use(cors(options));
+    app.use(cors());
 
     // handle JSON format
     app.use(express.json());
