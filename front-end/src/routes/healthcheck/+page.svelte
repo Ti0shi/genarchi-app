@@ -1,7 +1,8 @@
 <script>
   import LoadingAnimation from '$lib/LoadingAnimation.svelte';
+  import {getHealth} from "../../api";
 
-  let check = fetch('http://localhost:8080/health').then((x) => x.json());
+  let check = getHealth();
 </script>
 
 <h1 class="text-center mt-10">

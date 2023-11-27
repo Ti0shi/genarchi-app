@@ -1,5 +1,9 @@
 import { env } from '$env/dynamic/public';
 
+export const getHealth = async () => {
+    return await fetch(`${env.PUBLIC_API_URL}/health`).then((res) => res.json());
+}
+
 export const getLateByUsers = async () => {
     return await fetch(`${env.PUBLIC_API_URL}/late`).then((res) => res.json());
 }
