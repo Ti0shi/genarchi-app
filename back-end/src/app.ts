@@ -12,7 +12,7 @@ export async function init(): Promise<express.Application> {
     const app: Application = express();
 
     // allowed origins for cors
-    const AllowedOrigins = ['http://localhost:5173', 'http://127.0.0.1:5173'];
+    const AllowedOrigins = ['*'];
 
     const options: cors.CorsOptions = {
         origin: AllowedOrigins,
