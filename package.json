@@ -2,7 +2,7 @@
     "name": "gen-archi",
     "version": "1.0.0",
     "scripts": {
-        "postinstall": "concurrently \"cd back-end && npm ci\" \"cd front-end && npm ci\"",
+        "postinstall": "concurrently \"cd back-end && sudo npm ci\" \"cd front-end && sudo npm ci\"",
         "set-up:db": "cd back-end && docker compose up -d mongo",
         "start": "concurrently \"npm run start:back-end\" \"npm run start:front-end\"",
         "start:prod": "concurrently \"cd back-end && npm run start\" \"cd front-end && npm run build && npm run serve\"",
