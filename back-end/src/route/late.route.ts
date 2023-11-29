@@ -12,9 +12,9 @@ router.get('', async (req: Request, res: Response, next: NextFunction) => {
     }
 });
 
-router.post('', (req: Request, res: Response, next: NextFunction) => {
+router.post('', async (req: Request, res: Response, next: NextFunction) => {
     try {
-        lateController.postLate(req, res);
+        await lateController.postLate(req, res);
     }
     catch (err) {
         next(err);

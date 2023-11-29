@@ -1,8 +1,8 @@
 <script>
   // @ts-nocheck
 
-  import { fetchUser } from '../api.ts';
-  import { onMount } from 'svelte';
+  import {fetchUser, postLate} from '../api.ts';
+  import {onMount} from 'svelte';
 
   let users = [];
 
@@ -20,18 +20,20 @@
 
   function handleClockInput() {
     const clockInput = document.getElementById('ClockInput');
-    const selectedClock = clockInput.value;
-    return selectedClock;
+    const hour = clockInput.value.split(':')[0];
+    const minute = clockInput.value.split(':')[1];
+    const t = new Date();
+    return t.setHours(hour, minute);
   }
 
-  const postLate = async () => {
+  const addLate = async () => {
     const clockSelect = handleClockInput();
     if (selectedUserId === 0 || clockSelect === '') {
       alert('Please select a customer and a time');
       return;
     }
 
-    await postLate
+    await postLate(selectedUserId, clockSelect);
   };
 </script>
 
@@ -83,7 +85,7 @@
         >
         <button
           class="bg-teal-400 text-black hover:bg-teal-500 px-6 py-3 rounded-full text-lg font-bold uppercase"
-          on:click={() => postLate()}>Add</button
+          on:click={() => addLate()}>Add</button
         >
       </form>
     </div>

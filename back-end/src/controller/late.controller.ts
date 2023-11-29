@@ -7,9 +7,15 @@ async function fetchLateByUsers(req: Request, res: Response) {
 }
 
 async function postLate(req: Request, res: Response) {
-    const { startedAt, userId } = req.body;
+    let { startedAt, userId } = req.body;
+
+    // startedAt = new Date().setHours(12, 0, 0, 0);
+
+    // console.log('startedAt', test)
+    // return res.status(201).send({prout: "Late Added"});
+
     await lateService.postLate(startedAt, userId);
-    return res.status(201).send('Late Added');
+    return res.status(201);
 }
 
 export default {

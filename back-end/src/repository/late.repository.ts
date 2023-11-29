@@ -18,7 +18,7 @@ async function postLate(startedAt: Date, userId: string) {
     console.log(startedAt, userId)
     const newLate = await prisma.late.create({
         data: {
-            meetingstartedAt: startedAt,
+            meetingstartedAt: new Date(startedAt).toISOString(),
             userId: userId
         }
     })

@@ -8,7 +8,6 @@
 
   onMount(async () => {
     lateData = await getLateByUsers();
-    console.log(lateData.lates);
     data.datasets[0].data = [];
     data.labels = [];
 
@@ -16,8 +15,6 @@
       data.datasets[0].data.push(lateData.lates[i].lateInMinute);
       data.labels.push(lateData.lates[i].name);
     }
-
-    console.log(data);
   });
 
   import {
