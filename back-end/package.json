@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "ts-node prisma/seed.ts",
     "start:dev": "npx nodemon",
     "start": "npm run build && node build/index.js",
     "lint": "eslint --fix . && prettier --write .",
