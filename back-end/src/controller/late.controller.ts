@@ -7,7 +7,7 @@ async function fetchLateByUsers(req: Request, res: Response) {
 }
 
 async function postLate(req: Request, res: Response) {
-    let { startedAt, userId } = req.body;
+    const { startedAt, userId } = req.body;
 
     // startedAt = new Date().setHours(12, 0, 0, 0);
 
